@@ -7,10 +7,10 @@ import { setBreadcrumbList } from "@/store/modules/breadcrumb/action";
 import { setAuthRouter } from "@/store/modules/auth/action";
 import { connect } from "react-redux";
 import type { MenuProps } from "antd";
+import { getMenuListMock } from "@/mock/modules/menu";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
 import "./index.less";
-import { getMenuListMock } from "@/mock/modules/menu";
 
 const LayoutMenu = (props: any) => {
 	const { pathname } = useLocation();

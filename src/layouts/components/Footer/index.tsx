@@ -6,11 +6,11 @@
  * @Description: 请填写简介
  */
 import { connect } from "react-redux";
-import "./index.less";
+import styles from "./index.module.less";
 
 const LayoutFooter = (props: any) => {
 	const { themeConfig } = props;
-	return <>{!themeConfig.footer && <div className="footer"></div>}</>;
+	return <>{!themeConfig.footer && <div className={styles.footer} />}</>;
 };
 
 const mapStateToProps = (state: any) => state.global;
