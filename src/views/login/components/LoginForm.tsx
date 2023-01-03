@@ -2,14 +2,14 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 17:14:28
+ * @LastEditTime: 2023-01-03 18:34:03
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
 import { useState } from "react";
 import { Button, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import { Login } from "@/api/interface";
+import { Login } from "@/mock/interface";
 import { HOME_URL } from "@/config/config";
 import { connect } from "react-redux";
 import { setToken } from "@/store/modules/global/action";
