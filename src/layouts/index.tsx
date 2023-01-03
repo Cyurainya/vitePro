@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:08:05
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 13:50:39
+ * @LastEditTime: 2023-01-03 14:17:43
  * @Description: 请填写简介
  */
 import { useEffect } from "react";
@@ -25,8 +25,7 @@ const LayoutIndex = (props: any) => {
 	// 获取按钮权限列表
 	const getAuthButtonsList = async () => {
 		const { data } = await getAuthorButtons();
-		console.log("button", await getAuthorButtons());
-		console.log("button data", data);
+
 		setAuthButtons(data);
 	};
 

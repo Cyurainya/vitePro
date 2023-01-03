@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 14:00:01
+ * @LastEditTime: 2023-01-03 14:17:23
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
@@ -31,7 +31,6 @@ const LoginForm = (props: any) => {
 			setLoading(true);
 			loginForm.password = md5(loginForm.password);
 			const { data } = await loginApi(loginForm);
-			console.log("login", await loginApi(loginForm));
 			setToken(data?.access_token);
 			setTabsList([]);
 			message.success("登录成功！");
