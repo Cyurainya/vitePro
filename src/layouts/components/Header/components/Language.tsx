@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:07:09
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-03 16:53:52
+ * @Description: 请填写简介
+ */
 import { Dropdown, Menu } from "antd";
 import { connect } from "react-redux";
 import { setLanguage } from "@/store/modules/global/action";
@@ -24,7 +31,7 @@ const Language = (props: any) => {
 		/>
 	);
 	return (
-		<Dropdown overlay={menu} placement="bottom" trigger={["click"]} arrow={true}>
+		<Dropdown menu={menu} placement="bottom" trigger={["click"]} arrow={true}>
 			<i className="icon-style iconfont icon-zhongyingwen"></i>
 		</Dropdown>
 	);

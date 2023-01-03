@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 14:56:02
+ * @LastEditTime: 2023-01-03 17:14:28
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
@@ -10,13 +10,13 @@ import { useState } from "react";
 import { Button, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Login } from "@/api/interface";
-import { loginApi } from "@/api/modules/login";
 import { HOME_URL } from "@/config/config";
 import { connect } from "react-redux";
 import { setToken } from "@/store/modules/global/action";
 import { useTranslation } from "react-i18next";
 import { setTabsList } from "@/store/modules/tabs/action";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import { loginApiMock } from "@/mock/modules/login";
 
 const LoginForm = (props: any) => {
 	const { t } = useTranslation();
@@ -30,8 +30,7 @@ const LoginForm = (props: any) => {
 		try {
 			setLoading(true);
 			loginForm.password = md5(loginForm.password);
-			const { data } = await loginApi(loginForm);
-
+			const { data } = await loginApiMock(loginForm);
 			setToken(data?.access_token);
 			setTabsList([]);
 			message.success("登录成功！");

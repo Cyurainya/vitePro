@@ -3,6 +3,9 @@ import { DownOutlined } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { HOME_URL } from "@/config/config";
+import type { MenuProps } from "antd";
+
+type MenuItem = Required<MenuProps>["items"][number];
 
 const MoreButton = (props: any) => {
 	const { t } = useTranslation();
@@ -18,7 +21,7 @@ const MoreButton = (props: any) => {
 		tabPath ?? navigate(HOME_URL);
 	};
 
-	const menu = (
+	const menu: MenuItem = (
 		<Menu
 			items={[
 				{
@@ -40,7 +43,7 @@ const MoreButton = (props: any) => {
 		/>
 	);
 	return (
-		<Dropdown overlay={menu} placement="bottom" arrow={{ pointAtCenter: true }} trigger={["click"]}>
+		<Dropdown menu={menu} placement="bottom" arrow={{ pointAtCenter: true }} trigger={["click"]}>
 			<Button className="more-button" type="primary" size="small">
 				{t("tabs.more")} <DownOutlined />
 			</Button>

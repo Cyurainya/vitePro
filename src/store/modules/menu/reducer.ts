@@ -1,15 +1,15 @@
 import { AnyAction } from "redux";
-import { MenuState } from "@/store/interface";
+import { MenuSliceState } from "@/store/interface";
 import produce from "immer";
 import * as types from "@/store/mutation-types";
 
-const menuState: MenuState = {
+const MenuSliceState: MenuSliceState = {
 	isCollapse: false,
 	menuList: []
 };
 
 // menu reducer
-const menu = (state: MenuState = menuState, action: AnyAction) =>
+const menu = (state: MenuSliceState = MenuSliceState, action: AnyAction) =>
 	produce(state, draftState => {
 		switch (action.type) {
 			case types.UPDATE_COLLAPSE:

@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:07:09
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-03 16:53:58
+ * @Description: 请填写简介
+ */
 import { useRef } from "react";
 import { Avatar, Modal, Menu, Dropdown, message } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
@@ -67,7 +74,7 @@ const AvatarIcon = (props: any) => {
 	);
 	return (
 		<>
-			<Dropdown overlay={menu} placement="bottom" arrow trigger={["click"]}>
+			<Dropdown menu={menu} placement="bottom" arrow trigger={["click"]}>
 				<Avatar size="large" src={avatar} />
 			</Dropdown>
 			<InfoModal innerRef={infoRef}></InfoModal>

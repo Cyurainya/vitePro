@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:07:09
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-03 16:53:18
+ * @Description: 请填写简介
+ */
 import { Dropdown, Menu } from "antd";
 import { setAssemblySize } from "@/store/modules/global/action";
 import { connect } from "react-redux";
@@ -35,7 +42,7 @@ const AssemblySize = (props: any) => {
 		/>
 	);
 	return (
-		<Dropdown overlay={menu} placement="bottom" trigger={["click"]} arrow={true}>
+		<Dropdown menu={menu} placement="bottom" trigger={["click"]} arrow={true}>
 			<i className="icon-style iconfont icon-contentright"></i>
 		</Dropdown>
 	);

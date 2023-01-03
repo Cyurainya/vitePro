@@ -6,13 +6,14 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { createHtmlPlugin } from "vite-plugin-html";
 import viteCompression from "vite-plugin-compression";
 import eslintPlugin from "vite-plugin-eslint";
+import { viteMockServe } from "vite-plugin-mock";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
-// @see: https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
-
+	console.log("mode", mode);
+	console.log("viteEnv", viteEnv);
 	return {
 		// base: "/",
 		// alias config
@@ -80,7 +81,11 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 					threshold: 10240,
 					algorithm: "gzip",
 					ext: ".gz"
-				})
+				}),
+			viteMockServe({
+				mockPath: "mock",
+				localEnabled: mode.mode === "serve"
+			})
 		],
 		esbuild: {
 			pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []

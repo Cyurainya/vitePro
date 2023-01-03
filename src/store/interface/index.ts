@@ -10,8 +10,8 @@ export interface ThemeConfigProp {
 	footer: boolean;
 }
 
-/* GlobalState */
-export interface GlobalState {
+/* GlobalSliceState */
+export interface GlobalSliceState {
 	token: string;
 	userInfo: any;
 	assemblySize: SizeType;
@@ -19,27 +19,27 @@ export interface GlobalState {
 	themeConfig: ThemeConfigProp;
 }
 
-/* MenuState */
-export interface MenuState {
+/* MenuSliceState */
+export interface MenuSliceState {
 	isCollapse: boolean;
 	menuList: Menu.MenuOptions[];
 }
 
-/* TabsState */
-export interface TabsState {
+/* TabsSliceState */
+export interface TabsSliceState {
 	tabsActive: string;
 	tabsList: Menu.MenuOptions[];
 }
 
-/* BreadcrumbState */
-export interface BreadcrumbState {
+/* BreadcrumbSliceState */
+export interface BreadcrumbSliceState {
 	breadcrumbList: {
 		[propName: string]: any;
 	};
 }
 
-/* AuthState */
-export interface AuthState {
+/* AuthSliceState */
+export interface AuthSliceState {
 	authButtons: {
 		[propName: string]: any;
 	};
