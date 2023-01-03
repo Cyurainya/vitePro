@@ -12,6 +12,8 @@ import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
+	const command = mode.command;
+	const prodMock = false;
 	console.log("mode", mode);
 	console.log("viteEnv", viteEnv);
 	return {
@@ -83,8 +85,15 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 					ext: ".gz"
 				}),
 			viteMockServe({
-				mockPath: "mock",
-				localEnabled: mode.mode === "serve"
+				mockPath: "mock", // 设置模拟.ts 文件的存储文件夹
+				localEnabled: mode.mode === "serve", // 设置是否启用本地 xxx.ts 文件，不要在生产环境中打开它.设置为 false 将禁用 mock 功能
+				prodEnabled: command !== "serve" && prodMock, // 设置打包是否启用 mock 功能
+				watchFiles: true, // 监视⽂件更改，并重新加载 mock 数据
+				supportTs: true, // 打开后，可以读取 ts ⽂件模块。请注意，打开后将⽆法监视.js ⽂件。
+				injectCode: `
+				import { setupProdMockServer } from './mockProdServer';
+				setupProdMockServer();
+			`
 			})
 		],
 		esbuild: {
