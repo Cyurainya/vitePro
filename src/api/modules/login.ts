@@ -18,9 +18,13 @@ export const loginApi = (params: Login.ReqLoginForm) => {
 // * 获取按钮权限
 export const getAuthorButtons = () => {
 	return http.get<Login.ResAuthButtons>(PORT1 + `/auth/buttons`);
+	// return http.get<Login.ResAuthButtons>(PORT1 + `56843107?apifoxToken=Jp7wyW3xHoMFrF9nIp04GxSqWQfDEBVb`);
 };
 
 // * 获取菜单列表
 export const getMenuList = () => {
+	// return http.get<Menu.MenuOptions[]>(
+	// 	"https://mock.apifox.cn/m2/2151491-0-default/56861677?apifoxToken=Jp7wyW3xHoMFrF9nIp04GxSqWQfDEBVb"
+	// );
 	return http.get<Menu.MenuOptions[]>(PORT1 + `/menu/list`);
 };

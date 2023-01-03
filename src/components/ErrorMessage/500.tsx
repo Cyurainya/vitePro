@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:08:05
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-03 10:24:37
+ * @Description: 请填写简介
+ */
 import { Button, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
