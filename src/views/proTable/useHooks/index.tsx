@@ -1,8 +1,15 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:08:05
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-03 10:21:57
+ * @Description: 请填写简介
+ */
 import { useEffect } from "react";
 import { Table, DatePicker, Button, Space } from "antd";
 import useAuthButtons from "@/hooks/useAuthButtons";
 
-import "./index.less";
+import styles from "./index.module.less";
 
 const UseHooks = () => {
 	// 按钮权限
@@ -68,7 +75,7 @@ const UseHooks = () => {
 		}
 	];
 	return (
-		<div className="card content-box">
+		<div className={`${styles.card} ${styles.contentBox}`}>
 			<div className="date">
 				<span>切换国际化的时候看我 😎 ：</span>
 				<RangePicker />

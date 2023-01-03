@@ -36,7 +36,7 @@ const BasicForm = () => {
 	};
 
 	return (
-		<div className="card content-box">
+		<div className="card contentBox">
 			<Form form={form} name="control-hooks" onFinish={onFinish} labelCol={{ span: 1 }}>
 				<Form.Item name="user" label="User">
 					<Input placeholder="Please enter a user" />

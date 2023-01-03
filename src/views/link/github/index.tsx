@@ -7,7 +7,7 @@
  */
 const Github = () => {
 	return (
-		<div className="card content-box">
+		<div className="card contentBox">
 			<span className="text">Github 仓库： 🍒🍉🍊</span>
 		</div>
 	);

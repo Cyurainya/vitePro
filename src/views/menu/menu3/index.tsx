@@ -1,6 +1,6 @@
 const Menu3 = () => {
 	return (
-		<div className="card content-box">
+		<div className="card contentBox">
 			<span className="text">Menu3 🍓🍇🍈🍉</span>
 		</div>
 	);

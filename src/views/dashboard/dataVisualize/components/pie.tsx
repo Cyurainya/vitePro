@@ -114,7 +114,7 @@ const Curve = () => {
 	};
 
 	const [echartsRef] = useEcharts(option, pieData);
-	return <div ref={echartsRef} className="content-box"></div>;
+	return <div ref={echartsRef} className="contentBox"></div>;
 };
 
 export default Curve;

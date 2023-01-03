@@ -144,7 +144,7 @@ const Curve = () => {
 		]
 	};
 	const [echartsRef] = useEcharts(option, data);
-	return <div ref={echartsRef} className="content-box"></div>;
+	return <div ref={echartsRef} className="contentBox"></div>;
 };
 
 export default Curve;

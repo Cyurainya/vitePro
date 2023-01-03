@@ -219,7 +219,7 @@ const ChinaMapChart = () => {
 	const [echartsRef] = useEcharts(option, data);
 
 	return (
-		<div className="content-box">
+		<div className="contentBox">
 			<div className="map-ball"></div>
 			<div ref={echartsRef} className="echarts"></div>
 		</div>

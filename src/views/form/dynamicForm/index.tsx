@@ -8,7 +8,7 @@ const DynamicForm = () => {
 	};
 
 	return (
-		<div className="card content-box">
+		<div className="card contentBox">
 			<Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
 				<Form.List name="users">
 					{(fields, { add, remove }) => (
