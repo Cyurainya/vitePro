@@ -1,5 +1,12 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:07:09
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-03 17:44:20
+ * @Description: 请填写简介
+ */
 import * as types from "@/store/mutation-types";
-import { getMenuList } from "@/api/modules/login";
+import { getMenuListMock } from "@/mock/modules/menu";
 import { Dispatch } from "react";
 
 // * updateCollapse
@@ -22,7 +29,7 @@ interface MenuProps {
 // * redux-thunk
 export const getMenuListActionThunk = () => {
 	return async (dispatch: Dispatch<MenuProps>) => {
-		const res = await getMenuList();
+		const res = await getMenuListMock();
 		dispatch({
 			type: types.SET_MENU_LIST,
 			menuList: (res.data as Menu.MenuOptions[]) ?? []

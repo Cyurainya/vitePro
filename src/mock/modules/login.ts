@@ -1,10 +1,10 @@
 import http from "@/axios";
-import { Login } from "@/api/interface";
+import { Login } from "@/mock/interface";
 /*
  * @Author: yannis cyu
  * @Date: 2023-01-03 16:50:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 17:22:13
+ * @LastEditTime: 2023-01-03 17:44:34
  * @Description: 请填写简介
  */
 
