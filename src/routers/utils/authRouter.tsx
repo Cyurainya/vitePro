@@ -3,7 +3,7 @@ import { AxiosCanceler } from "@/axios/helper/axiosCancel";
 import { searchRoute } from "@/utils/util";
 import { rootRouter } from "@/routers/index";
 import { HOME_URL } from "@/config/config";
-import { store } from "@/redux/index";
+import { store } from "@/store/index";
 
 const axiosCanceler = new AxiosCanceler();
 

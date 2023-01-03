@@ -1,4 +1,4 @@
-import * as types from "@/redux/mutation-types";
+import * as types from "@/store/mutation-types";
 import { getMenuList } from "@/api/modules/login";
 import { Dispatch } from "react";
 

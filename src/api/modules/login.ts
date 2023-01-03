@@ -23,8 +23,8 @@ export const getAuthorButtons = () => {
 
 // * 获取菜单列表
 export const getMenuList = () => {
+	return http.get<Menu.MenuOptions[]>(PORT1 + `/menu/list`);
 	// return http.get<Menu.MenuOptions[]>(
 	// 	"https://mock.apifox.cn/m2/2151491-0-default/56861677?apifoxToken=Jp7wyW3xHoMFrF9nIp04GxSqWQfDEBVb"
 	// );
-	return http.get<Menu.MenuOptions[]>(PORT1 + `/menu/list`);
 };

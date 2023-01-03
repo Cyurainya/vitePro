@@ -61,7 +61,6 @@ npm run commit
 ### 文件资源目录 📚
 
 ```text
-Hooks-Admin
 ├─ .vscode                # vscode推荐配置
 ├─ public                 # 静态资源文件（忽略打包）
 ├─ src

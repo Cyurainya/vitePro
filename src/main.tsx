@@ -8,7 +8,7 @@ import "@/language/index";
 import "virtual:svg-icons-register";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import { store, persistor } from "@/redux";
+import { store, persistor } from "@/store";
 import App from "@/App";
 
 // react 17 创建，控制台会报错，暂时不影响使用（菜单折叠时不会出现闪烁）

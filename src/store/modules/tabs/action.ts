@@ -1,4 +1,4 @@
-import * as types from "@/redux/mutation-types";
+import * as types from "@/store/mutation-types";
 
 // * setTabsList
 export const setTabsList = (tabsList: Menu.MenuOptions[]) => ({

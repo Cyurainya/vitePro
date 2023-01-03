@@ -5,9 +5,9 @@ import { ResultData } from "@/api/interface";
 import { ResultEnum } from "@/enums/httpEnum";
 import { checkStatus } from "./helper/checkStatus";
 import { AxiosCanceler } from "./helper/axiosCancel";
-import { setToken } from "@/redux/modules/global/action";
+import { setToken } from "@/store/modules/global/action";
 import { message } from "antd";
-import { store } from "@/redux";
+import { store } from "@/store";
 
 const axiosCanceler = new AxiosCanceler();
 

@@ -7,7 +7,7 @@
  */
 import defaultTheme from "@/styles/theme/theme-default.less?inline";
 import darkTheme from "@/styles/theme/theme-dark.less?inline";
-import { ThemeConfigProp } from "@/redux/interface";
+import { ThemeConfigProp } from "@/store/interface";
 
 /**
  * @description 全局主题设置

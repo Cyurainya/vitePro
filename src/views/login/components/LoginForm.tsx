@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 14:17:23
+ * @LastEditTime: 2023-01-03 14:56:02
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
@@ -13,9 +13,9 @@ import { Login } from "@/api/interface";
 import { loginApi } from "@/api/modules/login";
 import { HOME_URL } from "@/config/config";
 import { connect } from "react-redux";
-import { setToken } from "@/redux/modules/global/action";
+import { setToken } from "@/store/modules/global/action";
 import { useTranslation } from "react-i18next";
-import { setTabsList } from "@/redux/modules/tabs/action";
+import { setTabsList } from "@/store/modules/tabs/action";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 const LoginForm = (props: any) => {
@@ -31,6 +31,7 @@ const LoginForm = (props: any) => {
 			setLoading(true);
 			loginForm.password = md5(loginForm.password);
 			const { data } = await loginApi(loginForm);
+
 			setToken(data?.access_token);
 			setTabsList([]);
 			message.success("登录成功！");
@@ -56,7 +57,7 @@ const LoginForm = (props: any) => {
 			autoComplete="off"
 		>
 			<Form.Item name="username" rules={[{ required: true, message: "请输入用户名" }]}>
-				<Input placeholder="用户名：admin / user" prefix={<UserOutlined />} />
+				<Input prefix={<UserOutlined />} />
 			</Form.Item>
 			<Form.Item name="password" rules={[{ required: true, message: "请输入密码" }]}>
 				<Input.Password autoComplete="new-password" placeholder="密码：123456" prefix={<LockOutlined />} />
