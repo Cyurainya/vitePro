@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 17:26:20
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 17:26:20
+ * @LastEditTime: 2023-01-04 15:23:40
  * @Description: 请填写简介
  */
 const menuRes = {
@@ -12,11 +12,6 @@ const menuRes = {
 			icon: "HomeOutlined",
 			title: "首页",
 			path: "/home/index"
-		},
-		{
-			icon: "AreaChartOutlined",
-			title: "数据大屏",
-			path: "/dataScreen/index"
 		},
 		{
 			icon: "TableOutlined",
@@ -30,25 +25,8 @@ const menuRes = {
 				},
 				{
 					icon: "AppstoreOutlined",
-					path: "/proTable/useComponent",
-					title: "使用 Component"
-				}
-			]
-		},
-		{
-			icon: "FundOutlined",
-			title: "Dashboard",
-			path: "/dashboard",
-			children: [
-				{
-					icon: "AppstoreOutlined",
-					path: "/dashboard/dataVisualize",
-					title: "数据可视化"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/dashboard/embedded",
-					title: "内嵌页面"
+					path: "/proTable/useStore",
+					title: "使用 zustand"
 				}
 			]
 		},
@@ -74,43 +52,7 @@ const menuRes = {
 				}
 			]
 		},
-		{
-			icon: "PieChartOutlined",
-			title: "Echarts",
-			path: "/echarts",
-			children: [
-				{
-					icon: "AppstoreOutlined",
-					path: "/echarts/waterChart",
-					title: "水型图"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/echarts/columnChart",
-					title: "柱状图"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/echarts/lineChart",
-					title: "折线图"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/echarts/pieChart",
-					title: "饼图"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/echarts/radarChart",
-					title: "雷达图"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/echarts/nestedChart",
-					title: "嵌套环形图"
-				}
-			]
-		},
+
 		{
 			icon: "ShoppingOutlined",
 			title: "常用组件",
@@ -208,37 +150,6 @@ const menuRes = {
 					icon: "AppstoreOutlined",
 					path: "/500",
 					title: "500页面"
-				}
-			]
-		},
-		{
-			icon: "PaperClipOutlined",
-			title: "外部链接",
-			path: "/link",
-			children: [
-				{
-					icon: "AppstoreOutlined",
-					path: "/link/gitee",
-					title: "Gitee 仓库",
-					isLink: "https://gitee.com/laramie/Hooks-Admin"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/link/github",
-					title: "GitHub 仓库",
-					isLink: "https://github.com/HalseySpicy/Hooks-Admin"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/link/juejin",
-					title: "掘金文档",
-					isLink: "https://juejin.cn/user/3263814531551816/posts"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/link/myBlog",
-					title: "个人博客",
-					isLink: "http://www.spicyboy.cn"
 				}
 			]
 		}
