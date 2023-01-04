@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2022-09-14 15:08:52
  * @LastEditors: yannis
- * @LastEditTime: 2022-12-30 16:15:52
+ * @LastEditTime: 2023-01-04 17:31:28
  * @Description: 请填写简介
  */
 import defaultTheme from "@/styles/theme/theme-default.less?inline";
@@ -12,6 +12,7 @@ import { ThemeConfigProp } from "@/store/interface";
 /**
  * @description 全局主题设置
  * */
+// 改成store
 const useTheme = (themeConfig: ThemeConfigProp) => {
 	const { weakOrGray, isDark } = themeConfig;
 	const initTheme = () => {

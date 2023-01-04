@@ -75,9 +75,9 @@ const LayoutMenu = (props: any) => {
 			const { data } = await getMenuListMock();
 			if (!data) return;
 			setMenuList(deepLoopFloat(data));
-			// 存储处理过后的所有面包屑导航栏到 redux 中
+			// 存储处理过后的所有面包屑导航栏到 store 中
 			setBreadcrumbList(findAllBreadcrumb(data));
-			// 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
+			// 把路由菜单处理成一维数组，存储到 store 中，做菜单权限判断
 			const dynamicRouter = handleRouter(data);
 			setAuthRouter(dynamicRouter);
 			setMenuListAction(data);

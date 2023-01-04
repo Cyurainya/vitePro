@@ -1,15 +1,9 @@
-/*
- * @Author: yannis cyu
- * @Date: 2023-01-03 10:08:05
- * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 18:32:13
- * @Description: 请填写简介
- */
+import React from "react";
 import ReactDOM from "react-dom/client";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "@/store";
-import React from "react";
+
 import "@/styles/reset.less";
 import "@/assets/iconfont/iconfont.less";
 import "@/assets/fonts/font.less";
