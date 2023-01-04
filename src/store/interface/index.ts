@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 17:38:14
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-04 18:41:14
+ * @Description: 请填写简介
+ */
 import type { SizeType } from "antd/lib/config-provider/SizeContext";
 
 /* themeConfigProp */
@@ -33,7 +40,7 @@ export interface TabsSliceState {
 
 /* BreadcrumbSliceState */
 export interface BreadcrumbSliceState {
-	breadcrumbList: {
+	breadcrumbList?: {
 		[propName: string]: any;
 	};
 }

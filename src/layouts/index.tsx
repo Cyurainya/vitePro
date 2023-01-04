@@ -2,25 +2,26 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:08:05
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 17:25:20
+ * @LastEditTime: 2023-01-04 18:59:54
  * @Description: 请填写简介
  */
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
-import { setAuthButtons } from "@/store/modules/auth/action";
 import { updateCollapse } from "@/store/modules/menu/action";
 import { connect } from "react-redux";
 import LayoutMenu from "./components/Menu";
 import LayoutHeader from "./components/Header";
 import LayoutTabs from "./components/Tabs";
+import { getAuthorButtonsMock } from "@/mock/modules/auth";
+import { useAuthStore } from "@/zustand/modules/auth";
 import LayoutFooter from "./components/Footer";
 import "./index.less";
-import { getAuthorButtonsMock } from "@/mock/modules/auth";
 
 const LayoutIndex = (props: any) => {
 	const { Sider, Content } = Layout;
-	const { isCollapse, updateCollapse, setAuthButtons } = props;
+	const { setAuthButtons } = useAuthStore.getState();
+	const { isCollapse, updateCollapse } = props;
 
 	// 获取按钮权限列表
 	const getAuthButtonsList = async () => {
@@ -63,5 +64,5 @@ const LayoutIndex = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { setAuthButtons, updateCollapse };
+const mapDispatchToProps = { updateCollapse };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutIndex);

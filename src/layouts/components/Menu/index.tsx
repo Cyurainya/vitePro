@@ -3,18 +3,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
 import { findAllBreadcrumb, getOpenKeys, handleRouter, searchRoute } from "@/utils/util";
 import { setMenuList } from "@/store/modules/menu/action";
-import { setBreadcrumbList } from "@/store/modules/breadcrumb/action";
-import { setAuthRouter } from "@/store/modules/auth/action";
 import { connect } from "react-redux";
 import type { MenuProps } from "antd";
 import { getMenuListMock } from "@/mock/modules/menu";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
 import "./index.less";
+import { useBreadcrumbStore } from "@/zustand/modules/breadcrumb";
+import { useAuthStore } from "@/zustand/modules/auth";
 
 const LayoutMenu = (props: any) => {
 	const { pathname } = useLocation();
-	const { isCollapse, setBreadcrumbList, setAuthRouter, setMenuList: setMenuListAction } = props;
+	const { setBreadcrumbList } = useBreadcrumbStore.getState();
+	const { setAuthRouter } = useAuthStore.getState();
+	const { isCollapse, setMenuList: setMenuListAction } = props;
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
 
@@ -117,5 +119,5 @@ const LayoutMenu = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { setMenuList, setBreadcrumbList, setAuthRouter };
+const mapDispatchToProps = { setMenuList };
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);
