@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:08:05
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 15:35:52
+ * @LastEditTime: 2023-01-04 18:32:45
  * @Description: 请填写简介
  */
 // @see: https://stylelint.io
@@ -30,6 +30,7 @@ module.exports = {
 		"selector-class-pattern": null, // 强制选择器类名的格式
 		"value-no-vendor-prefix": null, // 关闭 vendor-prefix(为了解决多行省略 -webkit-box)
 		"at-rule-no-unknown": null,
+		"rule-empty-line-before": "never",
 		"selector-pseudo-class-no-unknown": [
 			true,
 			{
