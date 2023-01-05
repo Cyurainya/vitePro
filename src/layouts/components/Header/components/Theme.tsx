@@ -1,16 +1,14 @@
 import { Drawer, Divider, Switch } from "antd";
 import { useState } from "react";
-import { connect } from "react-redux";
 import { FireOutlined, SettingOutlined } from "@ant-design/icons";
-import { setThemeConfig } from "@/store/modules/global/action";
-import { updateCollapse } from "@/store/modules/menu/action";
 import SwitchDark from "@/components/SwitchDark";
+import { useMenuStore } from "@/store/modules/menu";
+import { useGlobalStore } from "@/store/modules/global";
 
-const Theme = (props: any) => {
+const Theme = () => {
 	const [visible, setVisible] = useState<boolean>(false);
-	const { setThemeConfig, updateCollapse } = props;
-	const { isCollapse } = props.menu;
-	const { themeConfig } = props.global;
+	const { isCollapse, updateCollapse } = useMenuStore.getState();
+	const { setThemeConfig, themeConfig } = useGlobalStore.getState();
 	const { weakOrGray, breadcrumb, tabs, footer } = themeConfig;
 
 	const setWeakOrGray = (checked: boolean, theme: string) => {
@@ -113,6 +111,4 @@ const Theme = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state;
-const mapDispatchToProps = { setThemeConfig, updateCollapse };
-export default connect(mapStateToProps, mapDispatchToProps)(Theme);
+export default Theme;

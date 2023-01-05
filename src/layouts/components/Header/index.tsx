@@ -14,7 +14,7 @@ import Language from "./components/Language";
 import Theme from "./components/Theme";
 import Fullscreen from "./components/Fullscreen";
 import "./index.less";
-import { useUserStore } from "@/zustand/modules/user";
+import { useUserStore } from "@/store/modules/user";
 
 const LayoutHeader = () => {
 	const { Header } = Layout;

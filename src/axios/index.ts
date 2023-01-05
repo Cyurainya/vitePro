@@ -1,4 +1,4 @@
-import { useUserStore } from "@/zustand/modules/user/index";
+import { useUserStore } from "@/store/modules/user/index";
 import NProgress from "@/config/nprogress";
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { showFullScreenLoading, tryHideFullScreenLoading } from "@/config/serviceLoading";

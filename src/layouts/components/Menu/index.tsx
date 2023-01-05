@@ -2,21 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Spin } from "antd";
 import { findAllBreadcrumb, getOpenKeys, handleRouter, searchRoute } from "@/utils/util";
-import { setMenuList } from "@/store/modules/menu/action";
-import { connect } from "react-redux";
 import type { MenuProps } from "antd";
 import { getMenuListMock } from "@/mock/modules/menu";
 import * as Icons from "@ant-design/icons";
 import Logo from "./components/Logo";
+import { useBreadcrumbStore } from "@/store/modules/breadcrumb";
+import { useAuthStore } from "@/store/modules/auth";
+import { useMenuStore } from "@/store/modules/menu";
 import "./index.less";
-import { useBreadcrumbStore } from "@/zustand/modules/breadcrumb";
-import { useAuthStore } from "@/zustand/modules/auth";
 
-const LayoutMenu = (props: any) => {
+const LayoutMenu = () => {
 	const { pathname } = useLocation();
+	const { setMenuList: setMenuListAction, isCollapse, menuList: menuListStore } = useMenuStore.getState();
 	const { setBreadcrumbList } = useBreadcrumbStore.getState();
 	const { setAuthRouter } = useAuthStore.getState();
-	const { isCollapse, setMenuList: setMenuListAction } = props;
 	const [selectedKeys, setSelectedKeys] = useState<string[]>([pathname]);
 	const [openKeys, setOpenKeys] = useState<string[]>([]);
 
@@ -94,7 +93,7 @@ const LayoutMenu = (props: any) => {
 	// 点击当前菜单跳转页面
 	const navigate = useNavigate();
 	const clickMenu: MenuProps["onClick"] = ({ key }: { key: string }) => {
-		const route = searchRoute(key, props.menuList);
+		const route = searchRoute(key, menuListStore);
 		if (route.isLink) window.open(route.isLink, "_blank");
 		navigate(key);
 	};
@@ -118,6 +117,4 @@ const LayoutMenu = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { setMenuList };
-export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu);
+export default LayoutMenu;

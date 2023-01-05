@@ -1,7 +1,7 @@
 import { devtools, persist } from "zustand/middleware";
 import create from "zustand";
 import { HOME_URL } from "@/config/config";
-import { TabsSliceState } from "@/zustand/interface";
+import { TabsSliceState } from "@/store/interface";
 const TabsInitState: TabsSliceState = {
 	tabsList: [{ title: "首页", path: HOME_URL }]
 };

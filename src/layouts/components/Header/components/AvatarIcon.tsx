@@ -13,7 +13,7 @@ import { HOME_URL } from "@/config/config";
 import PasswordModal from "./PasswordModal";
 import InfoModal from "./InfoModal";
 import avatar from "@/assets/images/avatar.png";
-import { useUserStore } from "@/zustand/modules/user";
+import { useUserStore } from "@/store/modules/user";
 
 const AvatarIcon = () => {
 	const { setToken } = useUserStore.getState();

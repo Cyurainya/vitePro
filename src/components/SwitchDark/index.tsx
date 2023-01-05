@@ -1,9 +1,15 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:07:09
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-05 15:11:40
+ * @Description: 请填写简介
+ */
+import { useGlobalStore } from "@/store/modules/global";
 import { Switch } from "antd";
-import { connect } from "react-redux";
-import { setThemeConfig } from "@/store/modules/global/action";
 
-const SwitchDark = (props: any) => {
-	const { setThemeConfig, themeConfig } = props;
+const SwitchDark = () => {
+	const { setThemeConfig, themeConfig } = useGlobalStore.getState();
 	const onChange = (checked: boolean) => {
 		setThemeConfig({ ...themeConfig, isDark: checked });
 	};
@@ -19,6 +25,4 @@ const SwitchDark = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setThemeConfig };
-export default connect(mapStateToProps, mapDispatchToProps)(SwitchDark);
+export default SwitchDark;

@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/zustand/modules/auth";
+import { useAuthStore } from "@/store/modules/auth";
 import { searchRoute } from "@/utils/util";
 import { useLocation } from "react-router-dom";
 import { routerArray } from "@/routers";

@@ -16,7 +16,7 @@ import i18n from "i18next";
 import "dayjs/locale/zh-cn";
 import AuthRouter from "@/routers/utils/authRouter";
 import Router from "@/routers/index";
-import { useGlobalStore } from "@/zustand/modules/global";
+import { useGlobalStore } from "@/store/modules/global";
 import { getBrowserLang } from "@/utils/util";
 
 const App = () => {

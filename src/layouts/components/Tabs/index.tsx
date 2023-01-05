@@ -1,19 +1,26 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:07:09
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-05 14:51:05
+ * @Description: 请填写简介
+ */
 import { Tabs, message } from "antd";
 import { HomeFilled } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
-import { connect } from "react-redux";
-import { setTabsList } from "@/store/modules/tabs/action";
 import { routerArray } from "@/routers";
 import { searchRoute } from "@/utils/util";
 import MoreButton from "./components/MoreButton";
+import { useTabStore } from "@/store/modules/tabs";
+import { useGlobalStore } from "@/store/modules/global";
 import "./index.less";
 
-const LayoutTabs = (props: any) => {
-	const { tabsList } = props.tabs;
-	const { themeConfig } = props.global;
-	const { setTabsList } = props;
+const LayoutTabs = () => {
+	const { tabsList, setTabsList } = useTabStore.getState();
+	const { themeConfig } = useGlobalStore.getState();
+
 	const { TabPane } = Tabs;
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
@@ -90,6 +97,4 @@ const LayoutTabs = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state;
-const mapDispatchToProps = { setTabsList };
-export default connect(mapStateToProps, mapDispatchToProps)(LayoutTabs);
+export default LayoutTabs;

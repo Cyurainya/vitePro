@@ -1,6 +1,6 @@
 import { devtools, persist } from "zustand/middleware";
 import create from "zustand";
-import { BreadcrumbSliceState } from "@/zustand/interface";
+import { BreadcrumbSliceState } from "@/store/interface";
 
 export type BreadcrumbStoreProps = BreadcrumbSliceState & {
 	setBreadcrumbList: (val: BreadcrumbSliceState) => void;

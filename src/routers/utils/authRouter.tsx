@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:08:05
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 09:50:36
+ * @LastEditTime: 2023-01-05 15:14:00
  * @Description: 请填写简介
  */
 import { useLocation, Navigate } from "react-router-dom";
@@ -10,11 +10,11 @@ import { AxiosCanceler } from "@/axios/helper/axiosCancel";
 import { searchRoute } from "@/utils/util";
 import { rootRouter } from "@/routers/index";
 import { HOME_URL } from "@/config/config";
-import { store } from "@/store/index";
-import { useAuthStore } from "@/zustand/modules/auth";
+import { useAuthStore } from "@/store/modules/auth";
+import { useUserStore } from "@/store/modules/user";
 
 const axiosCanceler = new AxiosCanceler();
-
+const { token } = useUserStore.getState();
 /**
  * @description 路由守卫组件
  * */
@@ -27,8 +27,6 @@ const AuthRouter = (props: { children: JSX.Element }) => {
 	// * 判断当前路由是否需要访问权限(不需要权限直接放行)
 	if (!route.meta?.requiresAuth) return props.children;
 
-	// * 判断是否有Token
-	const token = store.getState().global.token;
 	if (!token) return <Navigate to="/login" replace />;
 
 	// * Dynamic Router(动态路由，根据后端返回的菜单数据生成的一维数组)

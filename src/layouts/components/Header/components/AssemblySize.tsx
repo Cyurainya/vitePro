@@ -2,17 +2,17 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 16:53:18
+ * @LastEditTime: 2023-01-05 15:06:28
  * @Description: 请填写简介
  */
 import { Dropdown, Menu } from "antd";
-import { setAssemblySize } from "@/store/modules/global/action";
-import { connect } from "react-redux";
+import { useGlobalStore } from "@/store/modules/global";
 
-const AssemblySize = (props: any) => {
-	const { assemblySize, setAssemblySize } = props;
+const AssemblySize = () => {
+	const { assemblySize, setAssemblySize } = useGlobalStore.getState();
 
 	// 切换组件大小
+	// TODO need to fix
 	const onClick = (e: MenuInfo) => {
 		setAssemblySize(e.key);
 	};
@@ -48,6 +48,4 @@ const AssemblySize = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setAssemblySize };
-export default connect(mapStateToProps, mapDispatchToProps)(AssemblySize);
+export default AssemblySize;

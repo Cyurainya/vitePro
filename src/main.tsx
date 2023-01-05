@@ -1,8 +1,12 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-03 10:08:05
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-05 15:12:04
+ * @Description: 请填写简介
+ */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { PersistGate } from "redux-persist/integration/react";
-import { Provider } from "react-redux";
-import { store, persistor } from "@/store";
 
 import "@/styles/reset.less";
 import "@/assets/iconfont/iconfont.less";
@@ -18,10 +22,6 @@ import App from "@/App";
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	// * react严格模式 开发模式请打开
 	<React.StrictMode>
-		<Provider store={store}>
-			<PersistGate persistor={persistor}>
-				<App />
-			</PersistGate>
-		</Provider>
+		<App />
 	</React.StrictMode>
 );

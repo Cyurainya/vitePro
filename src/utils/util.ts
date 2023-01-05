@@ -1,47 +1,6 @@
 import { RouteObject } from "@/routers/interface";
 
 /**
- * @description 获取localStorage
- * @param {String} key Storage名称
- * @return string
- */
-export const localGet = (key: string) => {
-	const value = window.localStorage.getItem(key);
-	try {
-		return JSON.parse(window.localStorage.getItem(key) as string);
-	} catch (error) {
-		return value;
-	}
-};
-
-/**
- * @description 存储localStorage
- * @param {String} key Storage名称
- * @param {Any} value Storage值
- * @return void
- */
-export const localSet = (key: string, value: any) => {
-	window.localStorage.setItem(key, JSON.stringify(value));
-};
-
-/**
- * @description 清除localStorage
- * @param {String} key Storage名称
- * @return void
- */
-export const localRemove = (key: string) => {
-	window.localStorage.removeItem(key);
-};
-
-/**
- * @description 清除所有localStorage
- * @return void
- */
-export const localClear = () => {
-	window.localStorage.clear();
-};
-
-/**
  * @description 获取浏览器默认语言
  * @return string
  */
@@ -125,7 +84,7 @@ export const getBreadcrumbList = (path: string, menuList: Menu.MenuOptions[]) =>
 };
 
 /**
- * @description 双重递归 找出所有 面包屑 生成对象存到 redux 中，就不用每次都去递归查找了
+ * @description 双重递归 找出所有 面包屑 生成对象存到 store 中，就不用每次都去递归查找了
  * @param {String} menuList 当前菜单列表
  * @returns object
  */

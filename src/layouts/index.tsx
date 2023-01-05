@@ -2,26 +2,25 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:08:05
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-04 18:59:54
+ * @LastEditTime: 2023-01-05 15:10:58
  * @Description: 请填写简介
  */
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Layout } from "antd";
-import { updateCollapse } from "@/store/modules/menu/action";
-import { connect } from "react-redux";
 import LayoutMenu from "./components/Menu";
 import LayoutHeader from "./components/Header";
 import LayoutTabs from "./components/Tabs";
 import { getAuthorButtonsMock } from "@/mock/modules/auth";
-import { useAuthStore } from "@/zustand/modules/auth";
+import { useAuthStore } from "@/store/modules/auth";
 import LayoutFooter from "./components/Footer";
+import { useMenuStore } from "@/store/modules/menu";
 import "./index.less";
 
-const LayoutIndex = (props: any) => {
+const LayoutIndex = () => {
 	const { Sider, Content } = Layout;
 	const { setAuthButtons } = useAuthStore.getState();
-	const { isCollapse, updateCollapse } = props;
+	const { isCollapse, updateCollapse } = useMenuStore.getState();
 
 	// 获取按钮权限列表
 	const getAuthButtonsList = async () => {
@@ -48,7 +47,7 @@ const LayoutIndex = (props: any) => {
 	return (
 		// 这里不用 Layout 组件原因是切换页面时样式会先错乱然后在正常显示，造成页面闪屏效果
 		<section className="container">
-			<Sider trigger={null} collapsed={props.isCollapse} width={220} theme="dark">
+			<Sider trigger={null} collapsed={isCollapse} width={220} theme="dark">
 				<LayoutMenu></LayoutMenu>
 			</Sider>
 			<Layout>
@@ -63,6 +62,4 @@ const LayoutIndex = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.menu;
-const mapDispatchToProps = { updateCollapse };
-export default connect(mapStateToProps, mapDispatchToProps)(LayoutIndex);
+export default LayoutIndex;

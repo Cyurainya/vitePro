@@ -2,15 +2,14 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 16:53:52
+ * @LastEditTime: 2023-01-05 15:01:55
  * @Description: 请填写简介
  */
 import { Dropdown, Menu } from "antd";
-import { connect } from "react-redux";
-import { setLanguage } from "@/store/modules/global/action";
+import { useGlobalStore } from "@/store/modules/global";
 
-const Language = (props: any) => {
-	const { language, setLanguage } = props;
+const Language = () => {
+	const { language, setLanguage } = useGlobalStore.getState();
 
 	const menu = (
 		<Menu
@@ -37,6 +36,4 @@ const Language = (props: any) => {
 	);
 };
 
-const mapStateToProps = (state: any) => state.global;
-const mapDispatchToProps = { setLanguage };
-export default connect(mapStateToProps, mapDispatchToProps)(Language);
+export default Language;

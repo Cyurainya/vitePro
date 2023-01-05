@@ -6,7 +6,7 @@
  * @Description: 请填写简介
  */
 
-import { useBreadcrumbStore } from "@/zustand/modules/breadcrumb";
+import { useBreadcrumbStore } from "@/store/modules/breadcrumb";
 
 const StoreComponent = () => {
 	const { breadcrumbList } = useBreadcrumbStore.getState();

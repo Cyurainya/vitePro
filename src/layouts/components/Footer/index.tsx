@@ -2,16 +2,15 @@
  * @Author: yannis cyu
  * @Date: 2023-01-02 22:17:18
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 10:15:34
+ * @LastEditTime: 2023-01-05 15:10:20
  * @Description: 请填写简介
  */
-import { connect } from "react-redux";
+import { useGlobalStore } from "@/store/modules/global";
 import styles from "./index.module.less";
 
-const LayoutFooter = (props: any) => {
-	const { themeConfig } = props;
+const LayoutFooter = () => {
+	const { themeConfig } = useGlobalStore.getState();
 	return <>{!themeConfig.footer && <div className={styles.footer} />}</>;
 };
 
-const mapStateToProps = (state: any) => state.global;
-export default connect(mapStateToProps)(LayoutFooter);
+export default LayoutFooter;

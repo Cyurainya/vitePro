@@ -8,8 +8,8 @@
 import type { SizeType } from "antd/lib/config-provider/SizeContext";
 import { devtools, persist } from "zustand/middleware";
 import create from "zustand";
-import { GlobalSliceState } from "@/zustand/interface";
-import { ThemeConfigProp } from "@/zustand/interface";
+import { GlobalSliceState } from "@/store/interface";
+import { ThemeConfigProp } from "@/store/interface";
 
 const GlobalInitState: GlobalSliceState = {
 	assemblySize: "middle",

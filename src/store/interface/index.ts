@@ -1,8 +1,8 @@
 /*
  * @Author: yannis cyu
- * @Date: 2023-01-03 17:38:14
+ * @Date: 2023-01-04 14:28:06
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 11:29:59
+ * @LastEditTime: 2023-01-05 14:11:41
  * @Description: 请填写简介
  */
 import type { SizeType } from "antd/lib/config-provider/SizeContext";
@@ -17,9 +17,14 @@ export interface ThemeConfigProp {
 	footer: boolean;
 }
 
+export interface userInfoState {
+	userName: string;
+	code: string;
+	token?: string;
+}
+
 /* GlobalSliceState */
 export interface GlobalSliceState {
-	token: string;
 	assemblySize: SizeType;
 	language: string;
 	themeConfig: ThemeConfigProp;
@@ -33,13 +38,13 @@ export interface MenuSliceState {
 
 /* TabsSliceState */
 export interface TabsSliceState {
-	tabsActive: string;
+	tabsActive?: string;
 	tabsList: Menu.MenuOptions[];
 }
 
 /* BreadcrumbSliceState */
 export interface BreadcrumbSliceState {
-	breadcrumbList?: {
+	breadcrumbList: {
 		[propName: string]: any;
 	};
 }

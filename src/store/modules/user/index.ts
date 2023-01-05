@@ -2,12 +2,12 @@
  * @Author: yannis cyu
  * @Date: 2023-01-05 11:36:36
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 14:04:34
+ * @LastEditTime: 2023-01-05 15:24:59
  * @Description: 请填写简介
  */
 import { devtools, persist } from "zustand/middleware";
 import create from "zustand";
-import { userInfoState } from "@/zustand/interface";
+import { userInfoState } from "@/store/interface";
 
 export type UserStoreProps = userInfoState & {
 	setToken: (val: string) => void;

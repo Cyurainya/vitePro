@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 13:40:58
+ * @LastEditTime: 2023-01-05 14:47:28
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
@@ -11,17 +11,16 @@ import { Button, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Login } from "@/mock/interface";
 import { HOME_URL } from "@/config/config";
-import { connect } from "react-redux";
-import { setToken } from "@/store/modules/global/action";
 import { useTranslation } from "react-i18next";
-import { setTabsList } from "@/store/modules/tabs/action";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { loginApiMock } from "@/mock/modules/login";
-import { useUserStore } from "@/zustand/modules/user";
+import { useUserStore } from "@/store/modules/user";
+import { useTabStore } from "@/store/modules/tabs";
 
-const LoginForm = (props: any) => {
+const LoginForm = () => {
 	const { t } = useTranslation();
-	const { setToken, setTabsList } = props;
+	const { setToken } = useUserStore.getState();
+	const { setTabsList } = useTabStore.getState();
 	const navigate = useNavigate();
 	const [form] = Form.useForm();
 	const { setUserInfo } = useUserStore.getState();
@@ -82,5 +81,4 @@ const LoginForm = (props: any) => {
 	);
 };
 
-const mapDispatchToProps = { setToken, setTabsList };
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default LoginForm;

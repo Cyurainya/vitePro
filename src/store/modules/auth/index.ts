@@ -1,6 +1,6 @@
 import { devtools, persist } from "zustand/middleware";
 import create from "zustand";
-import { AuthSliceState } from "@/zustand/interface/index";
+import { AuthSliceState } from "@/store/interface/index";
 
 type AuthStoreProps = AuthSliceState & {
 	setAuthButtons: (val: { [propName: string]: any }) => void;
