@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 17:26:20
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 13:57:13
+ * @LastEditTime: 2023-01-05 15:34:23
  * @Description: 请填写简介
  */
 const menuRes = {
@@ -27,28 +27,6 @@ const menuRes = {
 					icon: "AppstoreOutlined",
 					path: "/proTable/useStore",
 					title: "使用 zustand"
-				}
-			]
-		},
-		{
-			icon: "FileTextOutlined",
-			title: "表单 Form",
-			path: "/form",
-			children: [
-				{
-					icon: "AppstoreOutlined",
-					path: "/form/basicForm",
-					title: "基础 Form"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/form/validateForm",
-					title: "校验 Form"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/form/dynamicForm",
-					title: "动态 Form"
 				}
 			]
 		},

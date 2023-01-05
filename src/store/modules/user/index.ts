@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-05 11:36:36
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 15:24:59
+ * @LastEditTime: 2023-01-05 15:57:40
  * @Description: 请填写简介
  */
 import { devtools, persist } from "zustand/middleware";
@@ -17,7 +17,7 @@ export type UserStoreProps = userInfoState & {
 const userInfoInitState: userInfoState = {
 	userName: "",
 	code: "",
-	token: ""
+	token: "11"
 };
 
 export const useUserStore = create<UserStoreProps>()(

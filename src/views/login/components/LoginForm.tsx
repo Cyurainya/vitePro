@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-05 14:47:28
+ * @LastEditTime: 2023-01-05 15:57:52
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
@@ -14,16 +14,16 @@ import { HOME_URL } from "@/config/config";
 import { useTranslation } from "react-i18next";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { loginApiMock } from "@/mock/modules/login";
-import { useUserStore } from "@/store/modules/user";
-import { useTabStore } from "@/store/modules/tabs";
+// import { useUserStore } from "@/store/modules/user";
+// import { useTabStore } from "@/store/modules/tabs";
 
 const LoginForm = () => {
 	const { t } = useTranslation();
-	const { setToken } = useUserStore.getState();
-	const { setTabsList } = useTabStore.getState();
+	// const { setToken } = useUserStore.getState();
+	// const { setTabsList } = useTabStore.getState();
 	const navigate = useNavigate();
 	const [form] = Form.useForm();
-	const { setUserInfo } = useUserStore.getState();
+	// const { setUserInfo } = useUserStore.getState();
 	const [loading, setLoading] = useState<boolean>(false);
 
 	// 登录
@@ -31,11 +31,11 @@ const LoginForm = () => {
 		try {
 			setLoading(true);
 			loginForm.password = md5(loginForm.password);
-			const { data } = await loginApiMock(loginForm);
-			const { access_token, userName, code } = data;
-			setUserInfo({ userName, code });
-			setToken(access_token);
-			setTabsList([]);
+			await loginApiMock(loginForm);
+			// const { access_token, userName, code } = data;
+			// setUserInfo({ userName, code });
+			// setToken(access_token);
+			// setTabsList([]);
 			message.success("登录成功！");
 			navigate(HOME_URL);
 		} finally {
