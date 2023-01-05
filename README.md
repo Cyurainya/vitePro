@@ -73,7 +73,7 @@ npm run commit
 │  ├─ language            # 语言国际化
 │  ├─ layouts             # 框架布局
 │  ├─ routers             # 路由管理
-│  ├─ redux               # redux store
+│  ├─ store               # 全局store
 │  ├─ styles              # 全局样式
 │  ├─ typings             # 全局 ts 声明
 │  ├─ utils               # 工具库
