@@ -93,7 +93,6 @@ npm run commit
 ├─ .prettierrc.js         # prettier 配置
 ├─ .stylelintignore       # 忽略 stylelint 格式化
 ├─ .stylelintrc.js        # stylelint 样式格式化配置
-├─ CHANGELOG.md           # 项目更新日志
 ├─ commitlint.config.js   # git 提交规范配置
 ├─ index.html             # 入口 html
 ├─ LICENSE                # 开源协议文件
