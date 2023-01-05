@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 16:53:58
+ * @LastEditTime: 2023-01-05 13:45:24
  * @Description: 请填写简介
  */
 import { useRef } from "react";
@@ -10,14 +10,13 @@ import { Avatar, Modal, Menu, Dropdown, message } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { HOME_URL } from "@/config/config";
-import { connect } from "react-redux";
-import { setToken } from "@/store/modules/global/action";
 import PasswordModal from "./PasswordModal";
 import InfoModal from "./InfoModal";
 import avatar from "@/assets/images/avatar.png";
+import { useUserStore } from "@/zustand/modules/user";
 
-const AvatarIcon = (props: any) => {
-	const { setToken } = props;
+const AvatarIcon = () => {
+	const { setToken } = useUserStore.getState();
 	const navigate = useNavigate();
 
 	interface ModalProps {
@@ -83,5 +82,4 @@ const AvatarIcon = (props: any) => {
 	);
 };
 
-const mapDispatchToProps = { setToken };
-export default connect(null, mapDispatchToProps)(AvatarIcon);
+export default AvatarIcon;

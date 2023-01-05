@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-04 14:28:06
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-04 15:39:45
+ * @LastEditTime: 2023-01-05 14:11:41
  * @Description: 请填写简介
  */
 import type { SizeType } from "antd/lib/config-provider/SizeContext";
@@ -17,10 +17,14 @@ export interface ThemeConfigProp {
 	footer: boolean;
 }
 
+export interface userInfoState {
+	userName: string;
+	code: string;
+	token?: string;
+}
+
 /* GlobalSliceState */
 export interface GlobalSliceState {
-	token: string;
-	userInfo: any;
 	assemblySize: SizeType;
 	language: string;
 	themeConfig: ThemeConfigProp;
@@ -34,7 +38,7 @@ export interface MenuSliceState {
 
 /* TabsSliceState */
 export interface TabsSliceState {
-	tabsActive: string;
+	tabsActive?: string;
 	tabsList: Menu.MenuOptions[];
 }
 

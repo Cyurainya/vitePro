@@ -1,3 +1,4 @@
+import { useUserStore } from "@/zustand/modules/user/index";
 import NProgress from "@/config/nprogress";
 import axios, { AxiosInstance, AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { showFullScreenLoading, tryHideFullScreenLoading } from "@/config/serviceLoading";
@@ -5,12 +6,10 @@ import { ResultData } from "@/mock/interface";
 import { ResultEnum } from "@/enums/httpEnum";
 import { checkStatus } from "./helper/checkStatus";
 import { AxiosCanceler } from "./helper/axiosCancel";
-import { setToken } from "@/store/modules/global/action";
 import { message } from "antd";
-import { store } from "@/store";
 
 const axiosCanceler = new AxiosCanceler();
-
+const { token, setToken } = useUserStore.getState();
 const config = {
 	// 默认地址请求地址，可在 .env 开头文件中修改
 	baseURL: import.meta.env.VITE_API_URL as string,
@@ -29,7 +28,7 @@ class RequestHttp {
 		/**
 		 * @description 请求拦截器
 		 * 客户端发送请求 -> [请求拦截器] -> 服务器
-		 * token校验(JWT) : 接受服务器返回的token,存储到redux/本地储存当中
+		 * token校验(JWT) : 接受服务器返回的token,存储到本地储存当中
 		 */
 		this.service.interceptors.request.use(
 			(config: AxiosRequestConfig) => {
@@ -38,7 +37,6 @@ class RequestHttp {
 				axiosCanceler.addPending(config);
 				// * 如果当前请求不需要显示 loading,在api服务中通过指定的第三个参数: { headers: { noLoading: true } }来控制不显示loading，参见loginApi
 				config.headers!.noLoading || showFullScreenLoading();
-				const token: string = store.getState().global.token;
 				return { ...config, headers: { ...config.headers, "x-access-token": token } };
 			},
 			(error: AxiosError) => {
@@ -59,7 +57,7 @@ class RequestHttp {
 				tryHideFullScreenLoading();
 				// * 登录失效（code == 599）
 				if (data.code == ResultEnum.OVERDUE) {
-					store.dispatch(setToken(""));
+					setToken("");
 					message.error(data.msg);
 					window.location.hash = "/login";
 					return Promise.reject(data);

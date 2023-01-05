@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 17:44:20
+ * @LastEditTime: 2023-01-05 13:55:15
  * @Description: 请填写简介
  */
 import * as types from "@/store/mutation-types";
@@ -39,19 +39,9 @@ export const getMenuListActionThunk = () => {
 
 // * redux-promise《async/await》
 export const getMenuListAction = async (): Promise<MenuProps> => {
-	const res = await getMenuList();
+	const res = await getMenuListMock();
 	return {
 		type: types.SET_MENU_LIST,
 		menuList: res.data ? res.data : []
 	};
-};
-
-// * redux-promise《.then/.catch》
-export const getMenuListActionPromise = (): Promise<MenuProps> => {
-	return getMenuList().then(res => {
-		return {
-			type: types.SET_MENU_LIST,
-			menuList: res.data ? res.data : []
-		};
-	});
 };

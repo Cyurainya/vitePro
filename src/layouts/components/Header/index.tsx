@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-02 22:17:18
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-05 13:40:34
+ * @Description: 请填写简介
+ */
 import { Layout } from "antd";
 import AvatarIcon from "./components/AvatarIcon";
 import CollapseIcon from "./components/CollapseIcon";
@@ -7,10 +14,11 @@ import Language from "./components/Language";
 import Theme from "./components/Theme";
 import Fullscreen from "./components/Fullscreen";
 import "./index.less";
+import { useUserStore } from "@/zustand/modules/user";
 
 const LayoutHeader = () => {
 	const { Header } = Layout;
-
+	const { userName } = useUserStore.getState();
 	return (
 		<Header>
 			<div className="header-lf">
@@ -22,7 +30,7 @@ const LayoutHeader = () => {
 				<Language />
 				<Theme />
 				<Fullscreen />
-				<span className="username">Hooks</span>
+				<span className="username"> {userName}</span>
 				<AvatarIcon />
 			</div>
 		</Header>

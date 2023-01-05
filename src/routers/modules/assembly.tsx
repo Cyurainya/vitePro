@@ -37,15 +37,6 @@ const assemblyRouter: Array<RouteObject> = [
 					title: "Icon 选择",
 					key: "selectIcon"
 				}
-			},
-			{
-				path: "/assembly/batchImport",
-				element: lazyLoad(React.lazy(() => import("@/views/assembly/batchImport/index"))),
-				meta: {
-					requiresAuth: true,
-					title: "批量导入数据",
-					key: "selectIcon"
-				}
 			}
 		]
 	}

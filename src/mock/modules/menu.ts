@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 17:26:20
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-04 15:23:40
+ * @LastEditTime: 2023-01-05 13:57:13
  * @Description: 请填写简介
  */
 const menuRes = {
@@ -72,11 +72,6 @@ const menuRes = {
 					icon: "AppstoreOutlined",
 					path: "/assembly/selectIcon",
 					title: "Icon 选择"
-				},
-				{
-					icon: "AppstoreOutlined",
-					path: "/assembly/batchImport",
-					title: "批量导入数据"
 				}
 			]
 		},
@@ -158,6 +153,6 @@ const menuRes = {
 };
 
 export const getMenuListMock = () => {
-	// 后端鉴权
+	// 由后端鉴权
 	return menuRes;
 };

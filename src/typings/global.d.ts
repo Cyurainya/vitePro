@@ -1,3 +1,10 @@
+/*
+ * @Author: yannis cyu
+ * @Date: 2023-01-02 22:17:18
+ * @LastEditors: yannis
+ * @LastEditTime: 2023-01-05 10:56:02
+ * @Description: 请填写简介
+ */
 // * Menu
 declare namespace Menu {
 	interface MenuOptions {
@@ -32,3 +39,11 @@ declare interface MenuInfo {
 	item: React.ReactInstance;
 	domEvent: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>;
 }
+
+// type utils
+type PickByValueType<T extends object, valueType> = {
+	// 判断值 T[key] 是否符合指定的类型
+	// 如果符合，将该属性的值设置为 该属性名称的字面量类型，也就是 key
+	// 否则，将属性的值设置为 never
+	[key in keyof T]: T[key] extends valueType ? key : never;
+};

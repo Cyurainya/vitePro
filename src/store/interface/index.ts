@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 17:38:14
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-04 18:41:14
+ * @LastEditTime: 2023-01-05 11:29:59
  * @Description: 请填写简介
  */
 import type { SizeType } from "antd/lib/config-provider/SizeContext";
@@ -20,7 +20,6 @@ export interface ThemeConfigProp {
 /* GlobalSliceState */
 export interface GlobalSliceState {
 	token: string;
-	userInfo: any;
 	assemblySize: SizeType;
 	language: string;
 	themeConfig: ThemeConfigProp;

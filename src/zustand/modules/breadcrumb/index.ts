@@ -1,19 +1,25 @@
-/*
- * @Author: yannis cyu
- * @Date: 2023-01-04 15:18:32
- * @LastEditors: yannis
- * @LastEditTime: 2023-01-04 18:40:38
- * @Description: 请填写简介
- */
+import { devtools, persist } from "zustand/middleware";
 import create from "zustand";
-import { BreadcrumbSliceState } from "@/store/interface";
+import { BreadcrumbSliceState } from "@/zustand/interface";
 
-type BreadcrumbProps = {
+export type BreadcrumbStoreProps = BreadcrumbSliceState & {
 	setBreadcrumbList: (val: BreadcrumbSliceState) => void;
-	breadcrumbList: BreadcrumbSliceState;
 };
 
-export const useBreadcrumbStore = create<BreadcrumbProps>()(set => ({
-	breadcrumbList: {},
-	setBreadcrumbList: (by: BreadcrumbSliceState) => set({ breadcrumbList: by })
-}));
+const breadcrumbListInit = {
+	breadcrumbList: {}
+};
+
+export const useBreadcrumbStore = create<BreadcrumbStoreProps>()(
+	devtools(
+		persist(
+			set => ({
+				...breadcrumbListInit,
+				setBreadcrumbList: (by: BreadcrumbSliceState) => set({ breadcrumbList: by })
+			}),
+			{
+				name: "breadcrumbStorage"
+			}
+		)
+	)
+);

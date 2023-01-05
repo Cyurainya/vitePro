@@ -1,17 +1,18 @@
-import http from "@/axios";
-import { Login } from "@/mock/interface";
 /*
  * @Author: yannis cyu
- * @Date: 2023-01-03 16:50:09
+ * @Date: 2023-01-05 14:14:57
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 17:44:34
+ * @LastEditTime: 2023-01-05 14:15:09
  * @Description: 请填写简介
  */
-
+import http from "@/axios";
+import { Login } from "@/mock/interface";
 const userLogRes = {
 	code: 200,
 	data: {
-		access_token: "unufvdotdqxuzfbdygovfmsbftlvbn"
+		access_token: "unufvdotdqxuzfbdygovfmsbftlvbn",
+		userName: "user",
+		code: "111"
 	},
 	msg: "成功"
 };
@@ -19,7 +20,9 @@ const userLogRes = {
 const adminLogRes = {
 	code: 200,
 	data: {
-		access_token: "bqddxxwqmfncffacvbpkuxvwvqrhln"
+		access_token: "bqddxxwqmfncffacvbpkuxvwvqrhln",
+		userName: "admin",
+		code: "111"
 	},
 	msg: "成功"
 };

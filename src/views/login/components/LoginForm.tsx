@@ -2,7 +2,7 @@
  * @Author: yannis cyu
  * @Date: 2023-01-03 10:07:09
  * @LastEditors: yannis
- * @LastEditTime: 2023-01-03 18:34:03
+ * @LastEditTime: 2023-01-05 13:40:58
  * @Description: 请填写简介
  */
 import md5 from "js-md5";
@@ -17,12 +17,14 @@ import { useTranslation } from "react-i18next";
 import { setTabsList } from "@/store/modules/tabs/action";
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { loginApiMock } from "@/mock/modules/login";
+import { useUserStore } from "@/zustand/modules/user";
 
 const LoginForm = (props: any) => {
 	const { t } = useTranslation();
 	const { setToken, setTabsList } = props;
 	const navigate = useNavigate();
 	const [form] = Form.useForm();
+	const { setUserInfo } = useUserStore.getState();
 	const [loading, setLoading] = useState<boolean>(false);
 
 	// 登录
@@ -31,7 +33,9 @@ const LoginForm = (props: any) => {
 			setLoading(true);
 			loginForm.password = md5(loginForm.password);
 			const { data } = await loginApiMock(loginForm);
-			setToken(data?.access_token);
+			const { access_token, userName, code } = data;
+			setUserInfo({ userName, code });
+			setToken(access_token);
 			setTabsList([]);
 			message.success("登录成功！");
 			navigate(HOME_URL);
